@@ -5,7 +5,7 @@ const quoteItems: QuoteItem[] = [
     id: "1",
     desc: "Customs clearance fee",
     rate: 150.75,
-    type: "OriginCharge",
+    type: "OriginCharges",
   },
   {
     id: "2",
@@ -29,7 +29,7 @@ const quoteItems: QuoteItem[] = [
     id: "5",
     desc: "Port service fee",
     rate: 100.0,
-    type: "OriginCharge",
+    type: "OriginCharges",
   },
   {
     id: "6",
@@ -53,7 +53,7 @@ const quoteItems: QuoteItem[] = [
     id: "9",
     desc: "Terminal handling charges",
     rate: 180.0,
-    type: "OriginCharge",
+    type: "OriginCharges",
   },
   {
     id: "10",
@@ -77,7 +77,7 @@ const quoteItems: QuoteItem[] = [
     id: "13",
     desc: "CFS service fee",
     rate: 85.5,
-    type: "OriginCharge",
+    type: "OriginCharges",
   },
   {
     id: "14",
@@ -101,7 +101,7 @@ const quoteItems: QuoteItem[] = [
     id: "17",
     desc: "Origin documentation fee",
     rate: 55.75,
-    type: "OriginCharge",
+    type: "OriginCharges",
   },
   {
     id: "18",

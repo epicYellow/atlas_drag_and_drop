@@ -20,6 +20,7 @@ import { createRegistry } from "./helpers/createRegistery";
 import { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/dist/types/types";
 import { BoardContext } from "./context/board-context";
 import Board from "./components/board/Board";
+import Column from "./components/column/Column";
 
 function App() {
   const [data, setData] = useState<BoardState>(() => {
@@ -425,7 +426,7 @@ function App() {
     <BoardContext.Provider value={contextValues}>
       <Board>
         {data.orderedColumnIds.map((columnId) => {
-          return <div>{columnId}</div>;
+          return <Column column={data.columnMap[columnId]} key={columnId} />;
         })}
       </Board>
     </BoardContext.Provider>

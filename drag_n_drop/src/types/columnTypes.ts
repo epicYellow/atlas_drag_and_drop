@@ -13,4 +13,10 @@ type DraggableState =
   | { type: "generate-column-preview" }
   | { type: "is-dragging" };
 
-export type { IdleState, DropTargetState, DraggableState };
+type ColumnContextProps = {
+  columnId: string;
+  getCardIndex: (id: string) => number;
+  getNumCards: () => number;
+};
+
+export type { IdleState, DropTargetState, DraggableState, ColumnContextProps };
