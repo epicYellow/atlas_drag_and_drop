@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@atlaskit/dropdown-menu": "^12.15.0",
     "@atlaskit/pragmatic-drag-and-drop": "^1.2.3",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.0.3",
     "@atlaskit/pragmatic-drag-and-drop-live-region": "^1.0.7",
