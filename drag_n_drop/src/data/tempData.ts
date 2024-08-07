@@ -1,4 +1,4 @@
-import { QuoteItem } from "../types/boardTypes";
+import { QuoteItem } from "../types/board";
 
 const quoteItems: QuoteItem[] = [
   {

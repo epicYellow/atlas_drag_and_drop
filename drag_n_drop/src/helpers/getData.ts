@@ -1,11 +1,11 @@
-import { quoteItems } from "../tempData/data";
-import { Charges, ColumnMap } from "../types/boardTypes";
+import { quoteItems } from "../data/tempData";
+import { Charges, ColumnMap } from "../types/board";
 
 const mapItemsForColumn = (type: Charges) => {
   return quoteItems.filter((quoteItem) => quoteItem.type === type);
 };
 
-function getInitialData() {
+function getBasicData() {
   const columnMap: ColumnMap = {
     OriginCharges: {
       title: "OriginCharges",
@@ -36,7 +36,10 @@ function getInitialData() {
     "BrokerageCharges",
   ];
 
-  return { columnMap, orderedColumnIds };
+  return {
+    columnMap,
+    orderedColumnIds,
+  };
 }
 
-export { getInitialData };
+export { getBasicData };

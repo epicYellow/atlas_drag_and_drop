@@ -1,3 +1,5 @@
+import { CleanupFn } from "@atlaskit/pragmatic-drag-and-drop/dist/types/internal-types";
+
 type Charges =
   | "OriginCharges"
   | "FreightCharges"
@@ -11,15 +13,15 @@ type QuoteItem = {
   type: Charges;
 };
 
-type ColumnType = {
+export type ColumnType = {
   title: string;
   columnId: string;
   items: QuoteItem[];
 };
 
-type ColumnMap = { [columnId: string]: ColumnType };
+export type ColumnMap = { [columnId: string]: ColumnType };
 
-type KeyboardOperation =
+type Outcome =
   | {
       type: "column-reorder";
       columnId: string;
@@ -39,39 +41,60 @@ type KeyboardOperation =
       itemIndexInFinishColumn: number;
     };
 
+type Trigger = "pointer" | "keyboard";
+
+type Operation = {
+  trigger: Trigger;
+  outcome: Outcome;
+};
+
 type BoardState = {
   columnMap: ColumnMap;
   orderedColumnIds: string[];
-  lastKeyboardOperation: KeyboardOperation | null;
+  lastOperation: Operation | null;
 };
 
-type BoardContextProps = {
+type BoardContextValue = {
   getColumns: () => ColumnType[];
+
   reorderColumn: (args: { startIndex: number; finishIndex: number }) => void;
+
   reorderCard: (args: {
     columnId: string;
     startIndex: number;
     finishIndex: number;
   }) => void;
+
   moveCard: (args: {
     startColumnId: string;
     finishColumnId: string;
     itemIndexInStartColumn: number;
     itemIndexInFinishColumn?: number;
   }) => void;
+
   registerCard: (args: {
     cardId: string;
-    actionMenuTrigger: HTMLElement;
-  }) => void;
+    entry: {
+      element: HTMLElement;
+      actionMenuTrigger: HTMLElement;
+    };
+  }) => CleanupFn;
+
+  registerColumn: (args: {
+    columnId: string;
+    entry: {
+      element: HTMLElement;
+    };
+  }) => CleanupFn;
+
   instanceId: symbol;
 };
 
 export type {
-  KeyboardOperation,
+  Outcome,
   BoardState,
-  ColumnMap,
-  QuoteItem,
   Charges,
-  ColumnType,
-  BoardContextProps,
+  QuoteItem,
+  Trigger,
+  BoardContextValue,
 };

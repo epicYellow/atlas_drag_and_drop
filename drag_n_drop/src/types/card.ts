@@ -1,8 +1,8 @@
 import { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/dist/types/types";
+import { QuoteItem } from "./board";
 import { Ref } from "react";
-import { QuoteItem } from "./boardTypes";
 
-type CardDraggableState =
+type CardState =
   | { type: "idle" }
   | { type: "preview"; container: HTMLElement; rect: DOMRect }
   | { type: "dragging" };
@@ -10,8 +10,8 @@ type CardDraggableState =
 type CardPrimitiveProps = {
   closestEdge: Edge | null;
   item: QuoteItem;
-  state: CardDraggableState;
+  state: CardState;
   actionMenuTriggerRef?: Ref<HTMLButtonElement>;
 };
 
-export type { CardDraggableState, CardPrimitiveProps };
+export type { CardState, CardPrimitiveProps };
